@@ -67,9 +67,9 @@ captions = f"""<template>
     .grp {{ position: absolute; left: 0; width: 100%; top: 990px; height: 150px; overflow: visible;
            display: flex; align-items: center; justify-content: center; }}
     .line {{ width: 100%; padding: 0 70px; text-align: center; font-family: Montserrat, sans-serif;
-            font-weight: 900; font-size: 84px; line-height: 1.05; letter-spacing: -0.01em;
-            color: #FFFFFF; -webkit-text-stroke: 10px #000; paint-order: stroke fill;
-            text-shadow: 0 6px 18px rgba(0,0,0,.55); text-transform: lowercase; }}
+            font-weight: 900; font-size: 56px; line-height: 1.05; letter-spacing: -0.01em;
+            color: #FFFFFF; -webkit-text-stroke: 7px #000; paint-order: stroke fill;
+            text-shadow: 0 4px 12px rgba(0,0,0,.55); text-transform: lowercase; }}
     .w {{ display: inline-block; transform-origin: 50% 60%; }}
   </style>
   <div id="root" data-composition-id="captions" data-width="1080" data-height="1920" data-layout-allow-overflow>
@@ -89,21 +89,11 @@ def ws(i):
 
 OVERLAYS = [
     # id, text, start (word), end, style
-    ("ov-pc", "kerja depan pc", ws(14), ws(18) - 0.06, "pill-dark"),
     ("ov-sakit", "sakit pinggang", ws(18), 10.95, "pill-red"),
-    ("ov-ofis", "kerja ofis", ws(24), ws(32) - 0.06, "pill-dark"),
-    ("ov-senam", "tak sempat bersenam", ws(32), 16.70, "pill-red"),
-    ("ov-kebas", "kebas • sengal", ws(40), 20.55, "pill-red"),
     ("ov-krek", "krek!", 25.35, 26.75, "stamp"),
-    ("ov-letup", "meletup!", ws(56), 32.45, "stamp"),
-    ("ov-skill", "skill baru", ws(68), 39.85, "pill-yellow"),
     ("ov-puas", "super puas", ws(83), 48.20, "stamp"),
-    ("ov-dahsyat", "dahsyat", ws(94), 53.95, "pill-yellow"),
-    ("ov-hidup", "seumur hidup!", ws(99), 55.95, "pill-dark"),
     ("ov-1010", "10/10", ws(117), 62.95, "score"),
-    ("ov-promo", "promosi sekarang", ws(129), ws(131) - 0.06, "pill-yellow"),
     ("ov-rm50", "bawah rm50", ws(131), 72.95, "price"),
-    ("ov-best", "super best!", ws(144), DURATION - 0.04, "stamp"),
 ]
 ov_html, ov_js = [], []
 for oid, text, s, e, style in OVERLAYS:
