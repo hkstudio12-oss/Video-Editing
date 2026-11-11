@@ -1,6 +1,6 @@
 """Cut the talking-head footage into one 1080x1920 @25fps edit.
 
-Usage: edit.py SRC_DIR WORK_DIR OUT.mp4
+Usage: edit.py SRC_DIR WORK_DIR OUT.mp4 [SEGMENTS.json]
 
 Each segment below is a hand-picked range (source seconds) chosen from the
 Whisper transcript: fillers ("aa", "err"), test takes and repeated sentences
@@ -84,7 +84,10 @@ def pieces_for(seg, sil):
 
 
 def main():
+    global SEGMENTS
     src, work, out = sys.argv[1:4]
+    if len(sys.argv) > 4:  # optional JSON list of [clip, start, end, mode]
+        SEGMENTS = [tuple(x) for x in json.load(open(sys.argv[4]))]
     os.makedirs(work, exist_ok=True)
     sil_cache = {}
     pieces = []

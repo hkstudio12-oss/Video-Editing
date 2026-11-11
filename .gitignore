@@ -2,4 +2,6 @@ node_modules/
 renders/
 *.MOV
 *.mp4
+*.webm
 .hyperframes/
+polo/preview/snaps/
