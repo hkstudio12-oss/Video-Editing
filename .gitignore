@@ -2,3 +2,4 @@ node_modules/
 renders/
 *.MOV
 *.mp4
+.hyperframes/
