@@ -13,8 +13,9 @@ words = json.load(open(os.path.join(HF, "assets/base_transcript.json")))["base.m
 DURATION = 56.42  # ffprobe of assets/base.mp4 (53.40 s cut + 3.0 s held last frame)
 
 # Whisper mishearings fixed against the source-clip transcripts ("" = drop the token)
-FIX = {15: "ada", 19: "ouuu", 20: "waaa!", 22: "ke", 31: "gua", 32: "", 34: "", 43: "eh",
-       51: "uuuh", 52: "sedap", 53: "weh", 56: "", 57: "terpower", 63: "ui", 78: "seumur", 138: ""}
+# (where two re-transcriptions of the cut agreed against the clip transcript, the majority wins)
+FIX = {15: "ada", 19: "ouuu", 20: "waaa!", 22: "", 31: "", 32: "", 34: "", 43: "siut",
+       51: "uuuh", 52: "sedap", 53: "weh", 63: "ui", 138: ""}
 BREAKS = {4, 9, 13, 18, 19, 20, 25, 28, 36, 40, 42, 47, 50, 52, 55, 60, 62, 63, 65, 72, 76, 82,
           85, 89, 99, 107, 110, 115, 122, 126, 131, 133, 138}
 MAX_WORDS, MAX_WORD_DUR = 3, 0.7
@@ -31,7 +32,7 @@ OVERLAYS = [  # id, [(text, colour, px)], start, end, align, top(px)
     ("o-4thn", [("4 tahun", Y, 210), ("construction", W_, 120)], 3.20, 4.98, "left", 175),
     ("o-nangis", [("nak", W_, 260), ("nangis", Y, 330)], 16.84, 17.68, "center", 250),
     ("o-bunyi", [("boleh", W_, 260), ("bunyi!", Y, 340)], 19.30, 21.08, "center", 250),
-    ("o-power", [("terpower", Y, 260)], 25.90, 27.18, "center", 175),
+    ("o-power", [("power!", Y, 300)], 25.90, 27.18, "center", 175),
     ("o-champ", [("champion", Y, 300)], 29.14, 30.48, "center", 250),
     ("o-baloi", [("berbaloi", Y, 300)], 35.20, 37.40, "center", 250),
     ("o-worth", [("worth it!", Y, 270)], 37.45, 38.98, "center", 175),
