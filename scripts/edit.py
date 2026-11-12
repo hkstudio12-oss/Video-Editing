@@ -83,6 +83,14 @@ def pieces_for(seg, sil):
     return out
 
 
+def src_file(src, clip):
+    for ext in (".MOV", ".MP4", ".mov", ".mp4"):
+        f = os.path.join(src, clip + ext)
+        if os.path.exists(f):
+            return f
+    raise FileNotFoundError(clip)
+
+
 def main():
     global SEGMENTS
     src, work, out = sys.argv[1:4]
@@ -92,14 +100,14 @@ def main():
     sil_cache = {}
     pieces = []
     for seg in SEGMENTS:
-        f = os.path.join(src, seg[0] + ".MOV")
+        f = src_file(src, seg[0])
         if f not in sil_cache:
             sil_cache[f] = silences(f)
         pieces += pieces_for(seg, sil_cache[f])
 
     vlist, alist, edl, t = [], [], [], 0.0
     for i, (clip, x, y) in enumerate(pieces):
-        f = os.path.join(src, clip + ".MOV")
+        f = src_file(src, clip)
         d = y - x
         v = os.path.join(work, f"v{i:03d}.mp4")
         a = os.path.join(work, f"a{i:03d}.wav")
