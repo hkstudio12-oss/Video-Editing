@@ -10,7 +10,7 @@
       #root { position: relative; width: 100%; height: 100%; }
       #base, .cut { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
       #base { z-index: 1; }
-      #overlays { position: absolute; inset: 0; z-index: 2; }
+      #blocks { position: absolute; inset: 0; z-index: 2; }
       .cut { z-index: 3; }
       #captions { position: absolute; inset: 0; z-index: 4; }
       #title { position: absolute; inset: 0; z-index: 5; }
@@ -21,41 +21,37 @@
          data-width="1080" data-height="1920">
       <video id="base" class="clip" src="assets/base.mp4" data-start="0" data-duration="106.25"
              data-track-index="0" data-has-audio="true" playsinline></video>
-      <div id="overlays" data-composition-id="overlays" data-composition-src="compositions/overlays.html"
+      <div id="blocks" data-composition-id="blocks" data-composition-src="compositions/blocks.html"
            data-start="0" data-duration="106.25" data-track-index="1" data-track-kind="graphics"
            data-width="1080" data-height="1920"></div>
-      <video id="c1" class="clip cut" src="assets/c1.webm" data-start="1.1" data-duration="3.93"
+      <video id="c1" class="clip cut" src="assets/c1.webm" data-start="0.0" data-duration="8.77"
              data-track-index="5" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c2" class="clip cut" src="assets/c2.webm" data-start="6.32" data-duration="2.53"
+      <video id="c2" class="clip cut" src="assets/c2.webm" data-start="10.0" data-duration="4.0"
              data-track-index="6" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c3" class="clip cut" src="assets/c3.webm" data-start="10.98" data-duration="3.02"
+      <video id="c3" class="clip cut" src="assets/c3.webm" data-start="18.1" data-duration="3.8"
              data-track-index="7" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c4" class="clip cut" src="assets/c4.webm" data-start="19.2" data-duration="2.7"
+      <video id="c4" class="clip cut" src="assets/c4.webm" data-start="25.4" data-duration="3.25"
              data-track-index="8" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c5" class="clip cut" src="assets/c5.webm" data-start="26.7" data-duration="2.05"
+      <video id="c5" class="clip cut" src="assets/c5.webm" data-start="32.1" data-duration="2.99"
              data-track-index="9" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c6" class="clip cut" src="assets/c6.webm" data-start="33.08" data-duration="2.01"
+      <video id="c6" class="clip cut" src="assets/c6.webm" data-start="36.65" data-duration="3.7"
              data-track-index="10" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c7" class="clip cut" src="assets/c7.webm" data-start="36.72" data-duration="3.63"
+      <video id="c7" class="clip cut" src="assets/c7.webm" data-start="49.3" data-duration="3.71"
              data-track-index="11" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c8" class="clip cut" src="assets/c8.webm" data-start="50.52" data-duration="2.49"
+      <video id="c8" class="clip cut" src="assets/c8.webm" data-start="54.4" data-duration="3.85"
              data-track-index="12" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c9" class="clip cut" src="assets/c9.webm" data-start="54.48" data-duration="3.77"
+      <video id="c9" class="clip cut" src="assets/c9.webm" data-start="60.6" data-duration="4.63"
              data-track-index="13" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c10" class="clip cut" src="assets/c10.webm" data-start="61.3" data-duration="3.93"
+      <video id="c10" class="clip cut" src="assets/c10.webm" data-start="66.2" data-duration="1.9"
              data-track-index="14" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c11" class="clip cut" src="assets/c11.webm" data-start="65.84" data-duration="4.11"
+      <video id="c11" class="clip cut" src="assets/c11.webm" data-start="70.3" data-duration="2.73"
              data-track-index="15" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c12" class="clip cut" src="assets/c12.webm" data-start="71.24" data-duration="1.81"
+      <video id="c12" class="clip cut" src="assets/c12.webm" data-start="80.9" data-duration="10.41"
              data-track-index="16" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c13" class="clip cut" src="assets/c13.webm" data-start="77.38" data-duration="3.67"
+      <video id="c13" class="clip cut" src="assets/c13.webm" data-start="96.45" data-duration="3.08"
              data-track-index="17" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c14" class="clip cut" src="assets/c14.webm" data-start="82.4" data-duration="2.15"
+      <video id="c14" class="clip cut" src="assets/c14.webm" data-start="101.3" data-duration="4.95"
              data-track-index="18" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c15" class="clip cut" src="assets/c15.webm" data-start="86.18" data-duration="5.13"
-             data-track-index="19" muted playsinline data-layout-allow-occlusion></video>
-      <video id="c16" class="clip cut" src="assets/c16.webm" data-start="95.14" data-duration="11.11"
-             data-track-index="20" muted playsinline data-layout-allow-occlusion></video>
       <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html"
            data-start="0" data-duration="106.25" data-track-index="2" data-track-kind="captions"
            data-width="1080" data-height="1920"></div>

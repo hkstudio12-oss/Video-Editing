@@ -52,6 +52,10 @@ OVERLAYS = [  # id, [(text, colour, px)], start, end, align, top(px)
     ("o-wa", [("whatsapp", G, 150), ("booking slot", Y, 130)], 95.24, DURATION, "center", 120),
 ]
 
+STYLE = "cenuai"  # captions-only look of the Cenuai videos: no big text behind the person
+if STYLE == "cenuai":
+    OVERLAYS = []
+
 # cutouts of the person behind each overlay (id -> (start, duration)); merged when windows touch
 _cw = []
 for _o in OVERLAYS:
@@ -94,21 +98,21 @@ for gi, g in enumerate(groups):
     for w in g:
         wid = f"cw{w['i']}"
         spans.append(f'<span class="w" id="{wid}">{html.escape(w["t"])}</span>')
-        cap_js.append(f'tl.set("#{wid}", {{color: "#FFE600", scale: 1.08}}, {w["s"]:.3f});')
+        cap_js.append(f'tl.set("#{wid}", {{color: "#FFE600", scale: 1.06}}, {w["s"]:.3f});')
         cap_js.append(f'tl.set("#{wid}", {{color: "#FFFFFF", scale: 1}}, {w["e"]:.3f});')
     cap_html.append(f'    <div id="cg{gi}" class="clip grp" data-start="{gs:.3f}" data-duration="{ge - gs:.3f}">'
                     f'<div class="line">{" ".join(spans)}</div></div>')
-    cap_js.append(f'tl.fromTo("#cg{gi} .line", {{opacity: 0, y: 10}}, {{opacity: 1, y: 0, duration: 0.12, ease: "power2.out"}}, {gs:.3f});')
+    cap_js.append(f'tl.fromTo("#cg{gi} .line", {{opacity: 0, scale: 0.7}}, {{opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2.5)"}}, {gs:.3f});')
 
 captions = f"""<template>
   <style>
     #root {{ position: absolute; inset: 0; }}
-    .grp {{ position: absolute; left: 0; width: 100%; top: 1010px; height: 120px; overflow: visible;
+    .grp {{ position: absolute; left: 0; width: 100%; top: 1250px; height: 200px; overflow: visible;
            display: flex; align-items: center; justify-content: center; }}
-    .line {{ width: 100%; padding: 0 70px; text-align: center; font-family: Montserrat, sans-serif;
-            font-weight: 900; font-size: 56px; line-height: 1.05; color: #FFFFFF;
-            -webkit-text-stroke: 7px #000; paint-order: stroke fill;
-            text-shadow: 0 4px 12px rgba(0,0,0,.55); text-transform: lowercase; }}
+    .line {{ width: 100%; padding: 0 130px; text-align: center; font-family: Montserrat, sans-serif;
+            font-weight: 900; font-size: 74px; line-height: 1.0; color: #FFFFFF; letter-spacing: 0.5px;
+            -webkit-text-stroke: 6px #000; paint-order: stroke fill;
+            text-shadow: 5px 6px 0 #000, 0 6px 16px rgba(0,0,0,.45); text-transform: uppercase; }}
     .w {{ display: inline-block; transform-origin: 50% 60%; }}
   </style>
   <div id="root" data-composition-id="captions" data-width="1080" data-height="1920" data-layout-allow-overflow>
@@ -157,21 +161,21 @@ overlays = f"""<template>
 </template>
 """
 
-TITLE_END = 4.9
+TITLE_END = DURATION
 title = f"""<template>
   <style>
     #root {{ position: absolute; inset: 0; }}
-    #t-kicker {{ position: absolute; left: 0; width: 100%; top: 1160px; display: flex; justify-content: center; }}
-    #t-kicker span {{ font-family: Montserrat, sans-serif; font-weight: 800; font-size: 40px; color: #111;
-                     background: #FFE600; padding: 10px 28px; border-radius: 999px; text-transform: lowercase; }}
+    #t-box {{ position: absolute; left: 0; width: 100%; top: 150px; display: flex; justify-content: center; }}
+    #t-box div {{ background: #000; border-radius: 34px; padding: 26px 46px 24px; text-align: center;
+                 font-family: Montserrat, sans-serif; font-weight: 900; font-size: 64px; line-height: 1.12;
+                 color: #FF1A1A; text-transform: uppercase; }}
   </style>
   <div id="root" data-composition-id="title" data-width="1080" data-height="1920">
-    <div id="t-kicker" class="clip" data-start="0" data-duration="{TITLE_END}"><span>servis sebelum kahwin</span></div>
+    <div id="t-box" class="clip" data-start="0" data-duration="{TITLE_END}"><div>servis sebelum<br>kahwin ????</div></div>
   </div>
   <script>
     const tl = gsap.timeline({{ paused: true }});
-    tl.fromTo("#t-kicker span", {{ opacity: 0, y: -30 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }}, 0.05);
-    tl.to("#t-kicker span", {{ opacity: 0, y: -20, duration: 0.25, ease: "power2.in" }}, {TITLE_END - 0.3});
+    tl.fromTo("#t-box div", {{ opacity: 0, scale: 0.6 }}, {{ opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }}, 0.0);
     window.__timelines["title"] = tl;
   </script>
 </template>
