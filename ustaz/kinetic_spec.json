@@ -1,0 +1,30 @@
+{
+ "duration": 36.44,
+ "fix": {"6": "mudah-mudah", "69": "insyaAllah", "7": "", "25": "wangian", "27": "ini", "41": "", "42": "ayatul", "44": "qulhuwallah",
+         "45": "al-falaq", "46": "", "48": "an-nas", "49": "", "50": "selawat", "62": "wangian", "81": "al-fateh", "82": ""},
+ "breaks": [10],
+ "cap_top": 1250,
+ "pill": ["wangian cenuai · al-fateh", 0, 4.9],
+ "cutouts": {"c1": [0, 34.0], "c2": [34.0, 2.44]},
+ "phrases": [
+  {"top": 480, "theme": "light", "lines": [{"w": [0,0], "style": "serif", "size": 120}, {"w": [1,1], "style": "hero", "size": 250, "arch": 1}]},
+  {"top": 480, "theme": "light", "lines": [{"w": [2,2], "style": "serif", "size": 120}, {"w": [3,3], "style": "hero", "size": 280, "arch": 1}]},
+  {"top": 480, "theme": "light", "lines": [{"w": [4,4], "style": "serif", "size": 120}, {"w": [5,5], "style": "hero", "size": 270, "arch": 1}]},
+  {"top": 430, "theme": "light", "lines": [{"w": [15,16], "style": "sans", "size": 90}, {"w": [17,17], "style": "hero", "size": 330}, {"w": [18,19], "style": "serif", "size": 80, "dx": 320}]},
+  {"top": 430, "theme": "light", "lines": [{"w": [20,21], "style": "serif", "size": 100}, {"w": [22,22], "style": "hero", "size": 340, "arch": 1}, {"w": [23,24], "style": "sans", "size": 70, "dx": 330}]},
+  {"top": 530, "theme": "dark", "lines": [{"w": [25,25], "style": "serif", "size": 150, "color": "#FFE600"}, {"w": [26,27], "style": "hero", "size": 280, "color": "#FFFFFF"}]},
+  {"top": 570, "theme": "dark", "lines": [{"w": [28,30], "style": "sans", "size": 80}, {"w": [31,31], "style": "hero", "size": 220}]},
+  {"top": 570, "theme": "dark", "lines": [{"w": [32,33], "style": "block", "size": 170}, {"w": [34,35], "style": "hero", "size": 200}, {"w": [36,36], "style": "serif", "size": 100, "dx": -340}]},
+  {"top": 530, "theme": "dark", "lines": [{"w": [37,37], "style": "serif", "size": 130}, {"w": [38,38], "style": "hero", "size": 300, "arch": 1}]},
+  {"top": 410, "theme": "dark", "lines": [{"w": [39,39], "style": "serif", "size": 110}, {"w": [40,40], "style": "hero", "size": 220}, {"w": [41,43], "style": "block", "size": 170}]},
+  {"top": 380, "theme": "dark", "lines": [{"w": [44,44], "style": "block", "size": 150}, {"w": [45,46], "style": "hero", "size": 200}, {"w": [47,49], "style": "block", "size": 170}]},
+  {"top": 530, "theme": "dark", "lines": [{"w": [50,50], "style": "serif", "size": 120}, {"w": [51,52], "style": "hero", "size": 230}]},
+  {"top": 530, "theme": "dark", "lines": [{"w": [53,54], "style": "serif", "size": 110}, {"w": [55,56], "style": "hero", "size": 210}]},
+  {"top": 480, "theme": "dark", "lines": [{"w": [57,57], "style": "hero", "size": 420, "arch": 1}]},
+  {"top": 450, "theme": "light", "lines": [{"w": [62,62], "style": "serif", "size": 140}, {"w": [63,64], "style": "hero", "size": 280}]},
+  {"top": 450, "theme": "light", "lines": [{"w": [65,66], "style": "sans", "size": 90}, {"w": [67,68], "style": "hero", "size": 300}]},
+  {"top": 570, "theme": "light", "lines": [{"w": [69,69], "style": "serif", "size": 150}]},
+  {"top": 450, "theme": "light", "lines": [{"w": [75,75], "style": "serif", "size": 120}, {"w": [76,76], "style": "hero", "size": 300, "arch": 1}]},
+  {"top": 450, "theme": "light", "hold": 36.44, "lines": [{"w": [79,80], "style": "sans", "size": 90}, {"w": [81,82], "style": "hero", "size": 330, "arch": 1}]}
+ ]
+}

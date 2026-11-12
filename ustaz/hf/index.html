@@ -10,7 +10,7 @@
       #root { position: relative; width: 100%; height: 100%; }
       #base, .cut { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
       #base { z-index: 1; }
-      #overlays { position: absolute; inset: 0; z-index: 2; }
+      #kinetic { position: absolute; inset: 0; z-index: 2; }
       .cut { z-index: 3; }
       #captions { position: absolute; inset: 0; z-index: 4; }
       #title { position: absolute; inset: 0; z-index: 5; }
@@ -21,11 +21,13 @@
          data-width="1080" data-height="1920">
       <video id="base" class="clip" src="assets/base.mp4" data-start="0" data-duration="36.44"
              data-track-index="0" data-has-audio="true" playsinline></video>
-      <div id="overlays" data-composition-id="overlays" data-composition-src="compositions/overlays.html"
+      <div id="kinetic" data-composition-id="kinetic" data-composition-src="compositions/kinetic.html"
            data-start="0" data-duration="36.44" data-track-index="1" data-track-kind="graphics"
            data-width="1080" data-height="1920"></div>
-      <video id="c1" class="clip cut" src="assets/c1.webm" data-start="0" data-duration="36.44"
+      <video id="c1" class="clip cut" src="assets/c1.webm" data-start="0" data-duration="34.0"
              data-track-index="5" muted playsinline data-layout-allow-occlusion></video>
+      <video id="c2" class="clip cut" src="assets/c2.webm" data-start="34.0" data-duration="2.44"
+             data-track-index="6" muted playsinline data-layout-allow-occlusion></video>
       <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html"
            data-start="0" data-duration="36.44" data-track-index="2" data-track-kind="captions"
            data-width="1080" data-height="1920"></div>
