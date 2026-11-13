@@ -36,11 +36,12 @@ BLOCKS = [
     ("k13", 59.50, 61.15, 180, [("l", "s", 62, [117, 119, 120, 121]), ("c", "b", 260, [122])]),
     ("k14", 61.15, 63.55, 170, [("l", "s", 62, [123, 124, 125]), ("r", "i", 100, [126, 127, 128]),
                                 ("c", "b", 250, [129], Y)]),
-    ("k15", 63.55, DURATION, 110, [("l", "s", 58, [131, 132]), ("c", "b", 200, [133]),
+    ("k15", 63.55, DURATION, 90, [("l", "s", 58, [131, 132]), ("c", "b", 200, [133]),
                                    ("r", "i", 80, [135, 136, 137, 138, 139]),
-                                   ("c", "s", 20, [("", 0)]),
+                                   ("c", "s", 44, [("", 0)]),
                                    ("c", "b", 110, [("whatsapp untuk booking", 67.30)], G),
                                    ("r", "i", 80, [140])]),
 ]
 # close-up selfies / therapist filling the top of frame: a cutout would hide the text, so all text sits in front
 CUTOUTS = {}
+LIGHT_BG = True  # white clinic walls: dark shadows instead of white glow

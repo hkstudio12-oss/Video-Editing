@@ -33,6 +33,10 @@ Scripts live in `scripts/`. Scratch files go in the session scratchpad; never co
 11. Commit scripts/compositions/reports (not media) and push; send the video + report with `SendUserFile`.
 
 ## Gotchas
+- **iPhone footage is HDR (HLG / BT.2020).** If `base.mp4` is HDR, HyperFrames auto-promotes the render to HDR and the output breaks: old caption groups never hide (they stack into gibberish) and text turns grey. Check `ffprobe -show_entries stream=color_transfer` — if it says `arib-std-b67`/`smpte2084`, tone-map `base.mp4` to SDR before rendering:
+  `-vf "zscale=tin=arib-std-b67:min=bt2020nc:pin=bt2020:t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p" -color_primaries bt709 -color_trc bt709 -colorspace bt709 -g 25`.
+  The render log must say "No HDR sources detected, rendering SDR". Always check frames from the **render itself**, not just snapshots (snapshots do not show this bug).
+- Kinetic style (user's reference): `scripts/build_kinetic.py HF_DIR CONFIG.py` with a per-project config (`servis/kinetic_config.py`, `gasgas/kinetic_config.py`). Set `LIGHT_BG = True` for white walls (dark shadows instead of white glow). Close-up selfies: `CUTOUTS = {}` (text in front), the head would hide text behind it.
 - Whisper hallucinates repeated lines / "Terima kasih kerana menonton!" over silence or screams — drop them.
 - Whisper stretches a word across the preceding pause; captions clamp each word to ≤0.7 s.
 - Check timings with `timeline`/snapshots, not assumptions; overlay text that is >50% hidden by the head must be moved or resized.

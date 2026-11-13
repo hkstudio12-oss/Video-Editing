@@ -58,3 +58,11 @@
   - "ada orang": Whisper dengar "barang-barang orang"
   - "**kepala batas**": Whisper dengar "Pulau Batah". Awak dah luluskan dalam preview.
 - Highlight lari pada 31.7s dan 45.3s: Whisper regangkan perkataan merentasi jeda. Subtitle ikut masa perkataan dalam cut.
+
+## Pembetulan render (subtitle bertindih & warna pudar)
+
+- Punca: footage iPhone ni **HDR (HLG/BT.2020)**. HyperFrames auto-tukar render ke mod HDR. Dalam mod tu, kumpulan subtitle lama tak disembunyikan (jadi bertindih) dan semua teks jadi kelabu/pudar.
+- Penyelesaian: `base.mp4` di-tone-map ke **SDR BT.709** sebelum render. Log render sekarang tulis "No HDR sources detected, rendering SDR".
+- Teks atas dinding putih: tukar glow putih kepada **bayang gelap** (`LIGHT_BG = True`), dan serif italic kuning diberi stroke nipis supaya lebih tebal.
+- Babak CTA: tambah jarak antara "area kepala batas pulau pinang" dan "WHATSAPP UNTUK BOOKING".
+- Selepas render semula, ketepatan subtitle masih 90.2%.

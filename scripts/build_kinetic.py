@@ -23,6 +23,19 @@ _ns = {"Y": Y, "G": G, "W_": W_, "MAX_WORDS": MAX_WORDS, "MAX_WORD_DUR": MAX_WOR
 exec(open(CFG).read(), _ns)
 DURATION, FIX, BREAKS, KEYWORDS, BLOCKS = (_ns[k] for k in ("DURATION", "FIX", "BREAKS", "KEYWORDS", "BLOCKS"))
 TITLE_TEXT = _ns.get("TITLE_TEXT", "")
+# text shadows; LIGHT_BG = True swaps the white glows for dark shadows so text reads on white walls
+if _ns.get("LIGHT_BG"):
+    SH_S = "0 0 2px rgba(0,0,0,.85), 0 2px 6px rgba(0,0,0,.65), 0 6px 22px rgba(0,0,0,.55)"
+    SH_B = "0 0 3px rgba(0,0,0,.6), 0 4px 10px rgba(0,0,0,.55), 0 12px 40px rgba(0,0,0,.45)"
+    SH_I = "0 0 2px rgba(0,0,0,.9), 0 2px 6px rgba(0,0,0,.7), 0 0 26px rgba(255,150,0,.45)"
+    I_STROKE = "-webkit-text-stroke: 1.2px currentColor;"
+    SH_C = "0 0 3px rgba(0,0,0,.95), 0 0 6px rgba(0,0,0,.8), 0 3px 14px rgba(0,0,0,.7)"
+else:
+    SH_S = "0 0 18px rgba(255,255,255,.35), 0 3px 14px rgba(0,0,0,.45)"
+    SH_B = "0 0 22px rgba(255,255,255,.55), 0 0 60px rgba(255,255,255,.25), 0 8px 30px rgba(0,0,0,.35)"
+    SH_I = "0 0 16px rgba(255,170,0,.85), 0 0 42px rgba(255,140,0,.45), 0 3px 12px rgba(0,0,0,.35)"
+    I_STROKE = ""
+    SH_C = "0 0 3px rgba(0,0,0,.7), 0 3px 14px rgba(0,0,0,.6)"
 if "CUTOUTS" in _ns:
     CUTOUTS = _ns["CUTOUTS"]
 else:  # one cutout per block window, merged when windows touch
@@ -97,12 +110,12 @@ blocks = f"""<template>
     .kl.l {{ text-align: left; }} .kl.c {{ text-align: center; }} .kl.r {{ text-align: right; }}
     .kw {{ display: inline-block; transform-origin: 50% 70%; }}
     .s {{ font-family: Inter, sans-serif; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12;
-          text-shadow: 0 0 18px rgba(255,255,255,.35), 0 3px 14px rgba(0,0,0,.45); }}
+          text-shadow: {SH_S}; }}
     .b {{ font-family: Anton, "League Gothic", sans-serif; font-weight: 400; text-transform: uppercase;
           line-height: 1.0; letter-spacing: -0.005em; margin: 2px 0 4px;
-          text-shadow: 0 0 22px rgba(255,255,255,.55), 0 0 60px rgba(255,255,255,.25), 0 8px 30px rgba(0,0,0,.35); }}
+          text-shadow: {SH_B}; }}
     .i {{ font-family: "Instrument Serif", "Playfair Display", serif; font-style: italic; font-weight: 400;
-          line-height: 1.12; text-shadow: 0 0 16px rgba(255,170,0,.85), 0 0 42px rgba(255,140,0,.45), 0 3px 12px rgba(0,0,0,.35); }}
+          line-height: 1.12; {I_STROKE} text-shadow: {SH_I}; }}
   </style>
   <div id="root" data-composition-id="blocks" data-width="1080" data-height="1920" data-layout-allow-overflow data-layout-allow-caption-zone>
 {chr(10).join(k_html)}
@@ -158,7 +171,7 @@ captions = f"""<template>
            display: flex; align-items: center; justify-content: center; }}
     .line {{ width: 100%; padding: 0 90px; text-align: center; font-family: Inter, sans-serif;
             font-weight: 800; font-size: 50px; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;
-            text-shadow: 0 0 3px rgba(0,0,0,.7), 0 3px 14px rgba(0,0,0,.6); }}
+            text-shadow: {SH_C}; }}
     .w {{ display: inline-block; }}
     .key {{ color: {Y}; }}
   </style>
