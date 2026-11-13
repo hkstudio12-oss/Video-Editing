@@ -2,7 +2,7 @@
 DURATION = 71.24  # ffprobe of assets/base.mp4 (68.24 s cut + 3.0 s held last frame)
 
 FIX = {0: "", 1: "", 2: "", 3: "", 4: "",          # hook: patient's "oh.. oh.." (text hook instead)
-       12: "dada", 13: "", 19: "gerd", 30: "lembutkan", 38: "lembutkan", 46: "",
+       12: "dada", 36: "", 13: "", 19: "gerd", 30: "lembutkan", 38: "lembutkan", 46: "",
        59: "fleksibel", 60: "bila kita", 64: "", 80: "ada", 83: "tahap", 87: "gas-gas", 88: "",
        99: "sakit-sakit", 100: "", 104: "bangun-bangun", 105: "", 114: "ringan",
        117: "ketat-ketat", 118: "", 129: "gas-gas", 130: "", 133: "al-mukmin", 134: "",
@@ -39,7 +39,8 @@ BLOCKS = [
     ("k15", 63.55, DURATION, 110, [("l", "s", 58, [131, 132]), ("c", "b", 200, [133]),
                                    ("r", "i", 80, [135, 136, 137, 138, 139]),
                                    ("c", "s", 20, [("", 0)]),
-                                   ("c", "b", 110, [("whatsapp untuk booking", 67.30)], G)]),
+                                   ("c", "b", 110, [("whatsapp untuk booking", 67.30)], G),
+                                   ("r", "i", 80, [140])]),
 ]
 # close-up selfies / therapist filling the top of frame: a cutout would hide the text, so all text sits in front
 CUTOUTS = {}
