@@ -1,0 +1,163 @@
+[
+ {
+  "clip": "IMG_0560",
+  "src_in": 84.4,
+  "src_out": 86.28,
+  "out_in": 0.0,
+  "out_out": 1.88
+ },
+ {
+  "clip": "IMG_0560",
+  "src_in": 86.84,
+  "src_out": 88.32,
+  "out_in": 1.88,
+  "out_out": 3.36
+ },
+ {
+  "clip": "IMG_0567",
+  "src_in": 3.92,
+  "src_out": 10.24,
+  "out_in": 3.36,
+  "out_out": 9.68
+ },
+ {
+  "clip": "IMG_0567",
+  "src_in": 10.36,
+  "src_out": 14.2,
+  "out_in": 9.68,
+  "out_out": 13.52
+ },
+ {
+  "clip": "IMG_0563",
+  "src_in": 117.4,
+  "src_out": 119.68,
+  "out_in": 13.52,
+  "out_out": 15.8
+ },
+ {
+  "clip": "IMG_0563",
+  "src_in": 119.88,
+  "src_out": 123.96,
+  "out_in": 15.8,
+  "out_out": 19.88
+ },
+ {
+  "clip": "IMG_0563",
+  "src_in": 124.12,
+  "src_out": 125.96,
+  "out_in": 19.88,
+  "out_out": 21.72
+ },
+ {
+  "clip": "IMG_0565",
+  "src_in": 67.4,
+  "src_out": 70.92,
+  "out_in": 21.72,
+  "out_out": 25.24
+ },
+ {
+  "clip": "IMG_0560",
+  "src_in": 270.88,
+  "src_out": 271.52,
+  "out_in": 25.24,
+  "out_out": 25.88
+ },
+ {
+  "clip": "IMG_0560",
+  "src_in": 271.68,
+  "src_out": 276.6,
+  "out_in": 25.88,
+  "out_out": 30.8
+ },
+ {
+  "clip": "IMG_0560",
+  "src_in": 283.68,
+  "src_out": 288.16,
+  "out_in": 30.8,
+  "out_out": 35.28
+ },
+ {
+  "clip": "IMG_0560",
+  "src_in": 291.24,
+  "src_out": 292.6,
+  "out_in": 35.28,
+  "out_out": 36.64
+ },
+ {
+  "clip": "IMG_0560",
+  "src_in": 295.0,
+  "src_out": 297.68,
+  "out_in": 36.64,
+  "out_out": 39.32
+ },
+ {
+  "clip": "IMG_0565",
+  "src_in": 158.96,
+  "src_out": 161.08,
+  "out_in": 39.32,
+  "out_out": 41.44
+ },
+ {
+  "clip": "IMG_0565",
+  "src_in": 161.4,
+  "src_out": 163.24,
+  "out_in": 41.44,
+  "out_out": 43.28
+ },
+ {
+  "clip": "IMG_0565",
+  "src_in": 163.4,
+  "src_out": 167.2,
+  "out_in": 43.28,
+  "out_out": 47.08
+ },
+ {
+  "clip": "IMG_0565",
+  "src_in": 167.32,
+  "src_out": 171.36,
+  "out_in": 47.08,
+  "out_out": 51.12
+ },
+ {
+  "clip": "IMG_0563",
+  "src_in": 204.72,
+  "src_out": 206.0,
+  "out_in": 51.12,
+  "out_out": 52.4
+ },
+ {
+  "clip": "IMG_0567",
+  "src_in": 15.28,
+  "src_out": 17.68,
+  "out_in": 52.4,
+  "out_out": 54.8
+ },
+ {
+  "clip": "IMG_0567",
+  "src_in": 18.08,
+  "src_out": 19.88,
+  "out_in": 54.8,
+  "out_out": 56.6
+ },
+ {
+  "clip": "IMG_0567",
+  "src_in": 20.48,
+  "src_out": 25.16,
+  "out_in": 56.6,
+  "out_out": 61.28
+ },
+ {
+  "clip": "IMG_0567",
+  "src_in": 25.92,
+  "src_out": 32.6,
+  "out_in": 61.28,
+  "out_out": 67.96
+ },
+ {
+  "clip": "IMG_0567",
+  "src_in": 32.92,
+  "src_out": 33.2,
+  "out_in": 67.96,
+  "out_out": 68.24
+ }
+]

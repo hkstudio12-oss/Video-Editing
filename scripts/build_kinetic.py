@@ -1,4 +1,4 @@
-"""Kinetic-typography compositions for the "servis sebelum kahwin" promo.
+"""Kinetic-typography HyperFrames compositions (engine; project data lives in a config .py).
 
 Style taken from the user's reference clip:
   * key phrases become a KINETIC BLOCK in the upper half: words pop in one by one
@@ -10,81 +10,36 @@ Style taken from the user's reference clip:
   * everything else is a small, clean subtitle (no heavy stroke), keyword in yellow.
   * while a block is on screen the normal subtitle is hidden.
 
-Usage: build_kinetic.py HF_DIR [--cutouts]
+Usage: build_kinetic.py HF_DIR CONFIG.py [--cutouts]
 """
 import json, os, sys, html
 
 HF = sys.argv[1]
 words = json.load(open(os.path.join(HF, "assets/base_transcript.json")))["base.mp4"]["words"]
-DURATION = 106.25  # ffprobe of assets/base.mp4 (103.24 s cut + 3.0 s held last frame)
-
-H_ = "hampa"  # northern "hampa" (you), Whisper hears "Ampua/Ampuan/Ampun"
-FIX = {18: "ada-ada", 87: "dulu sekali", 225: "diri sendiri", 281: "satu je", 1: "geng-geng", 2: "", 11: "imaginasi", 12: H_, 19: "", 20: "ping-pong", 22: "ping-pong",
-       23: "sendirilah", 24: "", 26: "mari", 27: "sini", 28: "", 30: H_, 40: "apa", 42: H_, 47: H_,
-       51: H_, 65: "mak", 66: "mentua,", 72: H_, 76: H_, 78: "je", 113: "urut", 114: "pelik-pelik", 115: "",
-       128: "barang-barang", 129: "", 139: "atas", 151: "kawasan", 159: "kawasan", 166: "shockwave", 167: "",
-       203: H_, 209: H_, 212: "ribu-ribu", 213: "", 217: "kenduri", 226: H_, 247: H_, 248: "shockwave",
-       251: "rm40", 252: "", 253: "", 258: "mana-mana", 259: "", 263: "rm40", 264: "", 265: "", 274: H_,
-       279: "urut", 283: "servis", 288: "servis", 290: "apa", 297: H_, 299: "booking,", 300: H_, 317: H_}
-BREAKS = {5, 8, 10, 15, 18, 21, 24, 28, 33, 36, 39, 42, 45, 50, 56, 58, 62, 67, 70, 75, 79, 84, 87,
-          95, 99, 102, 107, 110, 115, 119, 124, 127, 130, 135, 140, 145, 148, 152, 157, 160, 165, 170, 175,
-          179, 182, 183, 188, 190, 194, 196, 201, 204, 208, 213, 217, 222, 225, 228, 233, 238, 244,
-          248, 254, 259, 262, 265, 270, 273, 276, 281, 285, 288, 294, 299, 301, 306, 309, 315, 317, 321}
-MAX_WORDS, MAX_WORD_DUR = 3, 0.7
-KEYWORDS = {"servis", "check", "kahwin", "shockwave", "problem", "darah", "sakit", "bekam", "urut",
-            "booking", "whatsapp", "slot", "promosi", "rm40", "overhaul", "gelombang", "lancar", "bini"}
-
+CFG = sys.argv[2]  # project config .py (DURATION, FIX, BREAKS, KEYWORDS, BLOCKS, CUTOUTS, TITLE_TEXT, colours)
 Y, G, W_ = "#FFC21A", "#2BE07A", "#FFFFFF"
-# kinetic blocks: id, start, end, top(px), lines
-# line = (align l/c/r, style s/b/i, px, [word indices] | [(literal, time)], colour or None)
-BLOCKS = [
-    ("k1", 0.00, 2.25, 200, [("c", "s", 62, [0, 1, 3, 4]), ("l", "i", 100, [6, 7]), ("c", "b", 240, [8])]),
-    ("k2", 2.25, 4.98, 170, [("l", "s", 62, [9, 10]), ("r", "s", 62, [11, 12, 13]), ("c", "b", 250, [14]),
-                             ("r", "i", 100, [15])]),
-    ("k3", 5.00, 8.72, 150, [("l", "s", 62, [16, 17, 18]), ("c", "b", 230, [20]), ("r", "i", 100, [22, 23])]),
-    ("k4", 10.10, 12.32, 170, [("c", "s", 56, [29, 30, 31, 32, 33]), ("l", "s", 62, [34]), ("c", "b", 240, [35]),
-                               ("r", "i", 100, [36])]),
-    ("k5", 12.32, 13.95, 200, [("l", "s", 62, [37]), ("c", "b", 250, [38]), ("r", "i", 100, [39]),
-                               ("c", "s", 56, [40, 41, 42])]),
-    ("k6", 18.20, 21.85, 170, [("l", "s", 62, [57, 58]), ("r", "i", 104, [59, 60]), ("c", "b", 230, [61, 62]),
-                               ("c", "s", 56, [63, 64, 65, 66])]),
-    ("k7", 25.50, 28.60, 200, [("c", "s", 62, [76, 77, 78, 79]), ("c", "b", 240, [80]), ("r", "i", 100, [81, 82, 83, 84])]),
-    ("k8", 32.20, 35.04, 200, [("l", "s", 62, [96, 97]), ("c", "b", 250, [98, 99]), ("r", "i", 96, [100, 101, 102])]),
-    ("k9", 36.75, 38.14, 130, [("l", "s", 64, [108, 109]), ("l", "b", 230, [110])]),
-    ("k10", 38.14, 39.26, 110, [("l", "s", 64, [111, 112]), ("l", "b", 210, [113]), ("l", "i", 100, [114])]),
-    ("k11", 49.40, 52.04, 110, [("l", "s", 62, [153, 154]), ("c", "b", 230, [155]), ("r", "i", 110, [156]),
-                                ("r", "s", 62, [157])]),
-    ("k12", 54.50, 57.60, 100, [("l", "s", 62, [("buat", 54.62)]), ("c", "b", 200, [166]), ("r", "s", 62, [168, 169, 170]), ("l", "i", 110, [171, 172])]),
-    ("k13", 60.70, 62.54, 180, [("l", "s", 62, [184, 185, 186]), ("r", "i", 110, [187]), ("c", "b", 230, [188])]),
-    ("k14", 62.54, 65.18, 100, [("l", "s", 62, [189, 190]), ("c", "b", 200, [191, 192]), ("r", "i", 100, [193, 194])]),
-    ("k15", 66.30, 68.05, 140, [("l", "s", 62, [197, 198, 199]), ("r", "i", 110, [200]), ("c", "b", 220, [201])]),
-    ("k16", 70.40, 72.48, 170, [("l", "s", 62, [209, 210, 211]), ("c", "b", 230, [212]), ("r", "i", 100, [214, 215])]),
-    ("k17", 81.00, 83.12, 100, [("l", "s", 56, [245, 246, 247, 248]), ("c", "b", 210, [251, 254], Y),
-                                ("r", "i", 96, [249, 250])]),
-    ("k18", 84.50, 87.02, 100, [("l", "s", 62, [260, 261, 262, 263]), ("r", "i", 96, [266, 267]), ("c", "b", 210, [268])]),
-    ("k19", 87.44, 90.60, 90, [("l", "s", 58, [271, 272]), ("c", "b", 180, [273]), ("r", "s", 50, [274, 275, 276]),
-                                ("c", "i", 92, [277, 278, 279])]),
-    ("k20", 96.55, 99.48, 120, [("c", "s", 54, [300, 301, 302, 303, 304, 305, 306]), ("c", "b", 190, [307], G),
-                                ("r", "i", 100, [308, 309])]),
-    ("k21", 101.40, DURATION, 130, [("l", "s", 62, [318, 319]), ("c", "b", 210, [320, 321], Y),
-                                    ("c", "b", 150, [("whatsapp admin", 103.20)], G)]),
-]
-
-# cutouts of the person behind each block (id -> (start, duration)); merged when windows touch
-_cw = []
-for _b in BLOCKS:
-    s0, e0 = round(max(0.0, _b[1] - 0.1), 2), round(min(_b[2] + 0.05, DURATION), 2)
-    if _cw and s0 - _cw[-1][1] < 0.6:
-        _cw[-1][1] = e0
-    else:
-        _cw.append([s0, e0])
-# frozen to the windows the cutout .webm files were made for (block ends were trimmed after rendering)
-CUTOUTS = {"c1": (0.0, 8.77), "c2": (10.0, 4.0), "c3": (18.1, 3.8), "c4": (25.4, 3.25), "c5": (32.1, 2.99), "c6": (36.65, 3.7), "c7": (49.3, 3.71), "c8": (54.4, 3.85), "c9": (60.6, 4.63), "c10": (66.2, 1.9), "c11": (70.3, 2.73), "c12": (80.9, 10.41), "c13": (96.45, 3.08), "c14": (101.3, 4.95)}
-if len(sys.argv) > 2 and sys.argv[2] == "--cutouts":
+MAX_WORDS, MAX_WORD_DUR = 3, 0.7
+_ns = {"Y": Y, "G": G, "W_": W_, "MAX_WORDS": MAX_WORDS, "MAX_WORD_DUR": MAX_WORD_DUR}
+exec(open(CFG).read(), _ns)
+DURATION, FIX, BREAKS, KEYWORDS, BLOCKS = (_ns[k] for k in ("DURATION", "FIX", "BREAKS", "KEYWORDS", "BLOCKS"))
+TITLE_TEXT = _ns.get("TITLE_TEXT", "")
+if "CUTOUTS" in _ns:
+    CUTOUTS = _ns["CUTOUTS"]
+else:  # one cutout per block window, merged when windows touch
+    _cw = []
+    for _b in BLOCKS:
+        if _b[0] in _ns.get("NO_CUTOUT", set()):
+            continue
+        s0, e0 = round(max(0.0, _b[1] - 0.1), 2), round(min(_b[2] + 0.05, DURATION), 2)
+        if _cw and s0 - _cw[-1][1] < 0.6:
+            _cw[-1][1] = e0
+        else:
+            _cw.append([s0, e0])
+    CUTOUTS = {f"c{k + 1}": (s0, round(e0 - s0, 2)) for k, (s0, e0) in enumerate(_cw)}
+if len(sys.argv) > 3 and sys.argv[3] == "--cutouts":
     for k, v in CUTOUTS.items():
         print(k, v[0], v[1])
     sys.exit()
-
 
 def text(i):
     return FIX.get(i, words[i]["w"].strip()).strip(",.?").lower().replace("service", "servis")
@@ -230,7 +185,7 @@ title = f"""<template>
                   margin-right: 14px; vertical-align: -2px; }}
   </style>
   <div id="root" data-composition-id="title" data-width="1080" data-height="1920">
-    <div id="t-kicker" class="clip" data-start="0" data-duration="{TITLE_END}"><span><i></i>servis sebelum kahwin</span></div>
+    <div id="t-kicker" class="clip" data-start="0" data-duration="{TITLE_END}"><span><i></i>{TITLE_TEXT}</span></div>
   </div>
   <script>
     const tl = gsap.timeline({{ paused: true }});

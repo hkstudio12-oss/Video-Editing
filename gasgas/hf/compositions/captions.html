@@ -1,0 +1,38 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .grp { position: absolute; left: 0; width: 100%; top: 1180px; height: 90px; overflow: visible;
+           display: flex; align-items: center; justify-content: center; }
+    .line { width: 100%; padding: 0 90px; text-align: center; font-family: Inter, sans-serif;
+            font-weight: 800; font-size: 50px; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;
+            text-shadow: 0 0 3px rgba(0,0,0,.7), 0 3px 14px rgba(0,0,0,.6); }
+    .w { display: inline-block; }
+    .key { color: #FFC21A; }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="cg0" class="clip grp" data-start="9.870" data-duration="1.540"><div class="line"><span class="w" id="cw20">macam</span> <span class="w" id="cw21">saya</span> <span class="w" id="cw22">ni</span></div></div>
+    <div id="cg1" class="clip grp" data-start="11.410" data-duration="1.500"><div class="line"><span class="w key" id="cw23">angin</span> <span class="w" id="cw24">memang</span> <span class="w key" id="cw25">angin</span></div></div>
+    <div id="cg2" class="clip grp" data-start="12.910" data-duration="0.640"><div class="line"><span class="w" id="cw26">banyak</span> <span class="w" id="cw27">dalam</span> <span class="w" id="cw28">badan</span></div></div>
+    <div id="cg3" class="clip grp" data-start="16.110" data-duration="1.020"><div class="line"><span class="w" id="cw34">sebab</span> <span class="w" id="cw35">kalau</span> <span class="w" id="cw36">kita</span></div></div>
+    <div id="cg4" class="clip grp" data-start="17.130" data-duration="0.560"><div class="line"><span class="w" id="cw37">tak</span> <span class="w key" id="cw38">lembutkan</span></div></div>
+    <div id="cg5" class="clip grp" data-start="17.690" data-duration="0.940"><div class="line"><span class="w" id="cw39">bila</span> <span class="w" id="cw40">nak</span> <span class="w key" id="cw41">tekan</span></div></div>
+    <div id="cg6" class="clip grp" data-start="18.630" data-duration="0.500"><div class="line"><span class="w" id="cw42">dia</span> <span class="w" id="cw43">jadi</span></div></div>
+    <div id="cg7" class="clip grp" data-start="19.130" data-duration="0.580"><div class="line"><span class="w" id="cw44">macam</span> <span class="w" id="cw45">ni</span></div></div>
+    <div id="cg8" class="clip grp" data-start="29.390" data-duration="0.620"><div class="line"><span class="w key" id="cw61">tekan</span></div></div>
+    <div id="cg9" class="clip grp" data-start="30.010" data-duration="0.820"><div class="line"><span class="w" id="cw62">dia</span> <span class="w" id="cw63">buka</span></div></div>
+    <div id="cg10" class="clip grp" data-start="30.830" data-duration="1.800"><div class="line"><span class="w" id="cw65">jadi</span> <span class="w" id="cw66">bila</span> <span class="w" id="cw67">buat</span></div></div>
+    <div id="cg11" class="clip grp" data-start="32.630" data-duration="0.870"><div class="line"><span class="w" id="cw68">pemulihan</span> <span class="w" id="cw69">diri</span></div></div>
+    <div id="cg12" class="clip grp" data-start="35.330" data-duration="0.660"><div class="line"><span class="w" id="cw75">dalam</span> <span class="w" id="cw76">3</span> <span class="w" id="cw77">hari</span></div></div>
+    <div id="cg13" class="clip grp" data-start="35.990" data-duration="0.680"><div class="line"><span class="w" id="cw78">ni</span> <span class="w" id="cw79">mungkin</span></div></div>
+    <div id="cg14" class="clip grp" data-start="48.290" data-duration="0.400"><div class="line"><span class="w" id="cw95">tak</span> <span class="w" id="cw96">tahu</span></div></div>
+    <div id="cg15" class="clip grp" data-start="48.690" data-duration="0.360"><div class="line"><span class="w" id="cw97">nak</span> <span class="w" id="cw98">cakap</span></div></div>
+    <div id="cg16" class="clip grp" data-start="57.730" data-duration="1.360"><div class="line"><span class="w" id="cw112">paling</span> <span class="w" id="cw113">ketara</span> <span class="w key" id="cw114">ringan</span></div></div>
+    <div id="cg17" class="clip grp" data-start="59.090" data-duration="0.410"><div class="line"><span class="w" id="cw115">lah</span> <span class="w" id="cw116">badan</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+tl.fromTo("#cg0 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 9.870);    tl.fromTo("#cg1 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 11.410);    tl.fromTo("#cg2 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 12.910);    tl.fromTo("#cg3 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 16.110);    tl.fromTo("#cg4 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 17.130);    tl.fromTo("#cg5 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 17.690);    tl.fromTo("#cg6 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 18.630);    tl.fromTo("#cg7 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 19.130);    tl.fromTo("#cg8 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 29.390);    tl.fromTo("#cg9 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 30.010);    tl.fromTo("#cg10 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 30.830);    tl.fromTo("#cg11 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 32.630);    tl.fromTo("#cg12 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 35.330);    tl.fromTo("#cg13 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 35.990);    tl.fromTo("#cg14 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 48.290);    tl.fromTo("#cg15 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 48.690);    tl.fromTo("#cg16 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 57.730);    tl.fromTo("#cg17 .line", {opacity: 0, y: 12, scale: 0.96}, {opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power2.out"}, 59.090);
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

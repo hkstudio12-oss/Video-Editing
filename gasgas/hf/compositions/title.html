@@ -1,0 +1,20 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #t-kicker { position: absolute; left: 0; width: 100%; top: 1180px; display: flex; justify-content: center; }
+    #t-kicker span { font-family: Inter, sans-serif; font-weight: 800; font-size: 38px; color: #111;
+                     background: #FFFFFF; padding: 12px 30px 12px 26px; border-radius: 16px;
+                     box-shadow: 0 6px 24px rgba(0,0,0,.35); letter-spacing: -0.01em; }
+    #t-kicker i { display: inline-block; width: 22px; height: 22px; border-radius: 6px; background: #FFC21A;
+                  margin-right: 14px; vertical-align: -2px; }
+  </style>
+  <div id="root" data-composition-id="title" data-width="1080" data-height="1920">
+    <div id="t-kicker" class="clip" data-start="0" data-duration="4.9"><span><i></i>testimoni rawatan gasgas</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#t-kicker span", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0.05);
+    tl.to("#t-kicker span", { opacity: 0, y: 14, duration: 0.22, ease: "power2.in" }, 4.62);
+    window.__timelines["title"] = tl;
+  </script>
+</template>
